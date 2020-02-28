@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { SideMenuComponent } from '../../menu/side-menu/side-menu.component';
 import { MenuService } from '../menu/menu.service';
 import { OnsNavigator } from 'ngx-onsenui';
-import { HomeComponent } from 'src/app/home/home.component';
+import { SideMenuComponent } from '../menu/side-menu/side-menu.component';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'ons-page[app-logged]',

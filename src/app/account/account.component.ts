@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
-import { RegisterComponent } from 'src/app/register/register/register.component';
 import { LoggedComponent } from 'src/app/onsenui/nav/logged/logged.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'ons-page[app-account]',

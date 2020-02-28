@@ -1,6 +1,10 @@
+<form (ngSubmit)="register()" [formGroup]="registerForm">
 <div style="text-align: center; margin-top: 200px">
     <p>
       <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
+      <span *ngIf="displayMessages.name">
+        <p [innerHTML]="displayMessages.name"></p>
+      </span>
     </p>
     <p>
         <ons-input id="email" placeholder="Email" modifier="underbar"></ons-input>
@@ -33,3 +37,4 @@
         <ons-button (click)="popRegister()">Sign in</ons-button>
     </p>
 </div>
+</form>

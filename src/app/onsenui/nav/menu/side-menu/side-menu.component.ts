@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
-import { MenuService } from '../../nav/menu/menu.service';
 import { CategoryComponent } from 'src/app/category/category.component';
+import { MenuService } from '../menu.service';
 
 @Component({
   selector: 'ons-page[app-side-menu]',
