@@ -1,20 +1,37 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AccountComponent } from './account.component';
+// TODO: Waiting solution of issue #2729 of onsenui
+// import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
+// TODO: Waiting solution of issue #2729 of onsenui
+// import { RegisterComponent } from './register.component';
+// TODO: Waiting solution of issue #2729 of onsenui
+// import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AccountComponent } from './account/account.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations:[
         AccountComponent,
+        // ForgotPasswordComponent,
+        // ResetPasswordComponent,
     ],
     imports:[
         CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
     ],
     exports:[
-        AccountComponent
+        AccountComponent,
+        // ForgotPasswordComponent,
+        // ResetPasswordComponent,
+        ReactiveFormsModule
     ]
 })
 

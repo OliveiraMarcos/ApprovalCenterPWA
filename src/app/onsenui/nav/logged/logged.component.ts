@@ -2,7 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { MenuService } from '../menu/menu.service';
 import { OnsNavigator } from 'ngx-onsenui';
 import { SideMenuComponent } from '../menu/side-menu/side-menu.component';
-import { HomeComponent } from '../../home/home.component';
+import { CategoryComponent } from 'src/app/category/category.component';
+import { ApprovalComponent } from 'src/app/approval/approval.component';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'ons-page[app-logged]',
@@ -24,6 +26,13 @@ export class LoggedComponent {
         this.splitter.nativeElement.side.close();
       }
     });
+
+    this.menuService.pages = this.routes;
   }
+
+  routes = {
+    'category':CategoryComponent,
+    'approval':ApprovalComponent
+  };
 
 }

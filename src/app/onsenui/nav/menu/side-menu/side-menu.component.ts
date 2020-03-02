@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
-import { CategoryComponent } from 'src/app/category/category.component';
 import { MenuService } from '../menu.service';
 
 @Component({
@@ -11,12 +10,12 @@ import { MenuService } from '../menu.service';
 export class SideMenuComponent {
   constructor(private navigator: OnsNavigator, private menuService: MenuService) {
   }
-  popSignIn(){
+  SignOut(){
     // Push SecontPageComponent to ons-navigator
     this.navigator.element.popPage();
   }
-  showCategory(){
-    this.menuService.load(CategoryComponent);
+  goTo(page){
+    this.menuService.load(page);
   }
 }
 

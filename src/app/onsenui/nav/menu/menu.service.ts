@@ -6,15 +6,17 @@ import { Subject, Observable } from 'rxjs';
 })
 export class MenuService {
 
+  pages={};
   subject = new Subject();
   get menu$(): Observable<any> {
     return this.subject.asObservable();
   }
+
   open() {
     this.subject.next();
   }
 
   load(page){
-    this.subject.next(page);
+    this.subject.next(this.pages[page]);
   }
 }

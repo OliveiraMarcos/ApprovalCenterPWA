@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 import { LoggedComponent } from 'src/app/onsenui/nav/logged/logged.component';
 import { RegisterComponent } from '../register/register.component';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'ons-page[app-account]',
@@ -15,6 +16,9 @@ export class AccountComponent {
   pushRegister(){
     // Push SecontPageComponent to ons-navigator
     this.navigator.element.pushPage(RegisterComponent);
+  }
+  pushForgotPassword(){
+    this.navigator.element.pushPage(ForgotPasswordComponent);
   }
   signIn(){
     this.navigator.element.pushPage(LoggedComponent);

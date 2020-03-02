@@ -13,10 +13,13 @@
       </ons-input>
     </p>
   
-    <p>
+    <p class="buttons">
       <ons-button (click)="signIn()">Sign in</ons-button>
     </p>
-    <p>
-        <ons-button (click)="pushRegister()">Register</ons-button>
+    <p class="buttons">
+        <ons-button (click)="pushRegister()" modifier="material--flat">Register</ons-button>
+    </p>
+    <p class="buttons">
+      <ons-button modifier="material--flat" (click)="pushForgotPassword()">Forgot password?</ons-button>
     </p>
 </div>
