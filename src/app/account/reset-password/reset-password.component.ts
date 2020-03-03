@@ -6,7 +6,7 @@ import { Observable, fromEvent, merge } from 'rxjs';
 import { AccountService } from '../services/account.service';
 import * as ons from 'onsenui';
 import { CustomValidators } from 'ngx-custom-validators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ResetPassword } from './reset-password';
 
 @Component({
@@ -29,7 +29,8 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
 
   constructor(private fb: FormBuilder, 
               private accountServer: AccountService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
 
     this.validationMessages = {
       email : {
@@ -59,6 +60,8 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
         .subscribe(
           result => {
             if (result.success) {
+              this.isLoad = false;
+              this.router.navigate(['/']);
               //Go to login 
               //this.popRegister();
             } else {

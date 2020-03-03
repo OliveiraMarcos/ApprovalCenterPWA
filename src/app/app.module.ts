@@ -8,9 +8,7 @@ import { ApprovalModule } from './approval/approval.module';
 import { CategoryModule } from './category/category.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './account/register/register.component';
-import { RouterModule } from '@angular/router';
-import { rootRouterConfig } from './app.routes';
-import { AppHomeComponent } from './onsenui/app-home/app-home.component';
+import { AppRoutesModule } from './app.routes';
 import { ResetPasswordComponent } from './account/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
 
@@ -28,9 +26,7 @@ import { ForgotPasswordComponent } from './account/forgot-password/forgot-passwo
     ApprovalModule,
     CategoryModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(rootRouterConfig,{
-      useHash:false
-  })
+    AppRoutesModule
   ],
   schemas: [
       CUSTOM_ELEMENTS_SCHEMA,
