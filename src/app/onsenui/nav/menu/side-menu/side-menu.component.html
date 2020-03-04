@@ -1,10 +1,10 @@
   <ons-toolbar>
-    <div class="center">Marcos Oliveira</div>
+    <div class="center">{{user?.userName}}</div>
   </ons-toolbar>
   <div class="background"></div>
   <div class="content">
     <ons-list>
-      <ons-list-header class="email">marcos.oliveira@eletraenrgy.com</ons-list-header>
+      <ons-list-header class="email">{{user?.email}}</ons-list-header>
       <ons-list-item (click)="goTo('category')">
         <div class="center">
           Approvals

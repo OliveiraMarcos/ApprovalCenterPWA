@@ -8,7 +8,6 @@ import { User } from './user';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
-import * as ons from 'onsenui';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -21,14 +20,7 @@ export class AuthenticationService {
     }
 
     public get currentUserValue(): User {
-        let user = this.currentUserSubject.value;
-        if (user && user.isActive) {
-            return user;
-        }
-        this.logout();
-        setTimeout(function(){
-            ons.notification.toast('Session expired!', {timeout: 2000});
-        },300);
+        return this.currentUserSubject.value;
     }
 
     login(username: string, password: string) {
@@ -45,7 +37,5 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
-        this.router.navigate(['/']);
-        
     }
 }
