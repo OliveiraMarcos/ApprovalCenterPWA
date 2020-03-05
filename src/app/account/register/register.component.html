@@ -1,5 +1,6 @@
 
 
+<ons-progress-bar indeterminate *ngIf="isLoad"></ons-progress-bar>
 
 <div class="content">
 
@@ -11,7 +12,7 @@
       </span>
     </p>
     <p>
-        <ons-input id="email" placeholder="Email" modifier="underbar" formControlName="email"></ons-input>
+      <ons-input id="email" placeholder="Email" modifier="underbar" formControlName="email"></ons-input>
       <span *ngIf="displayMessages.email">
         <p class="msg-validation" [innerHTML]="displayMessages.email"></p>
       </span>
@@ -32,28 +33,25 @@
     </p>
 
     <p>
-        <ons-input
-          id="confirmPassword"
-          placeholder="Confirm Password"
-          type="password"
-          modifier="underbar"
-          formControlName="confirmPassword"
-        >
-        </ons-input>
-        <span *ngIf="displayMessages.confirmPassword">
-          <p class="msg-validation" [innerHTML]="displayMessages.confirmPassword"></p>
-        </span>
+      <ons-input
+        id="confirmPassword"
+        placeholder="Confirm Password"
+        type="password"
+        modifier="underbar"
+        formControlName="confirmPassword"
+      >
+      </ons-input>
+      <span *ngIf="displayMessages.confirmPassword">
+        <p class="msg-validation" [innerHTML]="displayMessages.confirmPassword"></p>
+      </span>
       </p>
   
     <p class="buttons">
-        <ons-button type="submit" modifier="underbar" (click)="register()" [disabled]="!registerForm.valid">Register
-        </ons-button>
+      <ons-button type="submit" modifier="underbar" (click)="register()" [disabled]="!registerForm.valid || isLoad">Register
+      </ons-button>
     </p>
     <p class="buttons">
-        <ons-button (click)="popRegister()" modifier="material--flat">Sign in</ons-button>
-    </p>
-    <p>
-      <ons-progress-circular *ngIf="isLoad" indeterminate></ons-progress-circular>
+      <ons-button (click)="popRegister()" modifier="material--flat">Sign in</ons-button>
     </p>
   </form>
 </div>

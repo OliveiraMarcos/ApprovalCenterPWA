@@ -8,13 +8,14 @@ import { CommonModule } from '@angular/common';
 // import { RegisterComponent } from './register.component';
 // TODO: Waiting solution of issue #2729 of onsenui
 // import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { AccountComponent } from './account/account.component';
+// TODO: Waiting solution of issue #2729 of onsenui
+// import { AccountComponent } from './account/account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations:[
-        AccountComponent,
+        // AccountComponent,
         // ForgotPasswordComponent,
         // ResetPasswordComponent,
     ],
@@ -28,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         CUSTOM_ELEMENTS_SCHEMA,
     ],
     exports:[
-        AccountComponent,
+        // AccountComponent,
         // ForgotPasswordComponent,
         // ResetPasswordComponent,
         ReactiveFormsModule

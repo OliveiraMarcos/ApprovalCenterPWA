@@ -1,6 +1,12 @@
-<div style="text-align: center; margin-top: 200px">
+<ons-progress-bar indeterminate *ngIf="isLoad"></ons-progress-bar>
+
+<div class="content">
+  <form (ngSubmit)="signIn()" [formGroup]="loginForm">
     <p>
-      <ons-input id="email" placeholder="Email" modifier="underbar"></ons-input>
+      <ons-input id="email" placeholder="Email" modifier="underbar" formControlName="email"></ons-input>
+      <span *ngIf="displayMessages.email">
+        <p class="msg-validation" [innerHTML]="displayMessages.email"></p>
+      </span>
     </p>
   
     <p>
@@ -8,13 +14,17 @@
         id="password"
         placeholder="Password"
         type="password"
+        formControlName="password"
         modifier="underbar"
       >
       </ons-input>
+      <span *ngIf="displayMessages.password">
+        <p class="msg-validation" [innerHTML]="displayMessages.password"></p>
+      </span>
     </p>
   
     <p class="buttons">
-      <ons-button (click)="signIn()">Sign in</ons-button>
+      <ons-button (click)="signIn()" [disabled]="!loginForm.valid || isLoad">Sign in</ons-button>
     </p>
     <p class="buttons">
         <ons-button (click)="pushRegister()" modifier="material--flat">Register</ons-button>
@@ -22,4 +32,5 @@
     <p class="buttons">
       <ons-button modifier="material--flat" (click)="pushForgotPassword()">Forgot password?</ons-button>
     </p>
+  </form>
 </div>

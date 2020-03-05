@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Result } from './result/result';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,9 @@ import { Result } from './result/result';
 export class AccountService {
 
   private url:string;
-  constructor(private http: HttpClient) { 
-    this.url = "http://localhost:52210/account/";
-  }
+  constructor(private http: HttpClient) {}
 
   post<T>(obj: T, action:string):Observable<Result<T>>{
-    return this.http.post<Result<T>>(this.url+action,obj);
+    return this.http.post<Result<T>>(`${environment.apiUrl}/account/${action}`,obj);
   }
 }

@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from './user';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { Result } from '../services/result/result';
 
 
 @Injectable({ providedIn: 'root' })
@@ -23,13 +24,13 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username: string, password: string) {
-        return this.http.post<any>(`${environment.apiUrl}`, { username, password })
-            .pipe(map(user => {
+    login(email: string, password: string) {
+        return this.http.post<Result<User>>(`${environment.apiUrl}/account`, { email, password })
+            .pipe(map(result => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
+                localStorage.setItem('currentUser', JSON.stringify(result.data));
+                this.currentUserSubject.next(result.data);
+                return result;
             }));
     }
 
