@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 import { MenuService } from '../menu.service';
-import { User } from 'src/app/account/auth/user';
-import { AuthenticationService } from 'src/app/account/auth/authentication.service';
 import * as ons from 'onsenui';
+import { User } from 'src/app/account/services/auth/user';
+import { AuthenticationService } from 'src/app/account/services/auth/authentication.service';
 
 
 

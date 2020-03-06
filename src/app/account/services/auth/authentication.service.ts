@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from './user';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { Result } from '../services/result/result';
+import { Result } from '../result/result';
 
 
 @Injectable({ providedIn: 'root' })

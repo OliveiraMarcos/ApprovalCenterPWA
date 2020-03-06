@@ -7,8 +7,8 @@ import { FormControlName, FormGroup, FormBuilder, Validators } from '@angular/fo
 import { ValidationMessages, GenericValidator, DisplayMessages } from 'src/app/generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
 import * as ons from 'onsenui';
-import { AuthenticationService } from '../auth/authentication.service';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../services/auth/authentication.service';
 
 @Component({
   selector: 'ons-page[app-account]',

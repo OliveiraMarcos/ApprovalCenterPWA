@@ -10,8 +10,9 @@ import { CommonModule } from '@angular/common';
 // import { ResetPasswordComponent } from './reset-password/reset-password.component';
 // TODO: Waiting solution of issue #2729 of onsenui
 // import { AccountComponent } from './account/account.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 
 @NgModule({
     declarations:[
@@ -33,6 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
         // ForgotPasswordComponent,
         // ResetPasswordComponent,
         ReactiveFormsModule
+    ],
+    providers:[
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
     ]
 })
 
