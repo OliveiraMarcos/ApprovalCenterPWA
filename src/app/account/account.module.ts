@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
+import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 
 @NgModule({
     declarations:[
@@ -36,7 +37,8 @@ import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
         ReactiveFormsModule
     ],
     providers:[
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true }
     ]
 })
 
