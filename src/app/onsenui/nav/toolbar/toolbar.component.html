@@ -7,10 +7,10 @@
     <ng-content></ng-content>
     <div class="right">
       <ons-icon icon="md-thumb-up-down" size="24px">
-        <span class="notification notification--material">1000</span>
+        <span class="notification notification--material">{{approvalsCount$ | async}}</span>
       </ons-icon>
       <ons-icon icon="md-notifications" size="24px">
-        <span class="notification notification--material">0</span>
+        <span class="notification notification--material"></span>
       </ons-icon>
     </div>
 </ons-toolbar>

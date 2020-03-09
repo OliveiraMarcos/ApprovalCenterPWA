@@ -1,0 +1,30 @@
+<ons-toolbar>
+<app-toolbar>
+    <div class="center">
+    Approvals
+    </div>
+</app-toolbar>
+</ons-toolbar>
+<div class="content" >
+    <ons-list>
+    <ons-list-header>Supject</ons-list-header>
+    <ons-list-item >
+        {{(approval$ | async)?.subject}}
+    </ons-list-item>
+    <ons-list-header>Description</ons-list-header>
+    <ons-list-item >
+        {{(approval$ | async)?.description}}
+    </ons-list-item>
+    <ons-list-header>Justification</ons-list-header>
+    <ons-list-item >
+        <ons-input class="large"></ons-input>
+    </ons-list-item>
+    </ons-list>
+</div>
+<ons-fab position="right bottom" (click)="sendApproval(true)">
+    <ons-icon icon="md-thumb-up"></ons-icon>
+</ons-fab>
+
+<ons-fab position="left bottom" (click)="sendApproval(false)">
+    <ons-icon icon="md-thumb-down"></ons-icon>
+</ons-fab>

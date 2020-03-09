@@ -10,5 +10,4 @@ import { AccountComponent } from './account/account/account.component';
   `,
   styles: []
 })
-export class AppComponent {
-}
+export class AppComponent {}

@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class AccountService {
 
-  private url:string;
   constructor(private http: HttpClient) {}
 
   post<T>(obj: T, action:string):Observable<Result<T>>{

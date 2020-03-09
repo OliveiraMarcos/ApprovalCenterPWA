@@ -4,7 +4,14 @@ export class User{
     token:string;
     expiration:Date;
 
-    public get isActive():Boolean{
+    constructor(user:User){
+        this.expiration = new Date(user?.expiration);
+        this.email = user?.email;
+        this.userName = user?.userName;
+        this.token = user?.token;
+    }
+
+    public get isActive():boolean{
         return this.expiration.valueOf() > new Date().valueOf();
     }
 }

@@ -4,6 +4,11 @@ import { MenuService } from '../menu.service';
 import * as ons from 'onsenui';
 import { User } from 'src/app/account/services/auth/user';
 import { AuthenticationService } from 'src/app/account/services/auth/authentication.service';
+import { Subscription, Observable } from 'rxjs';
+import { Store } from 'src/app/approval/store/approval.store';
+import { ApprovalService } from 'src/app/approval/services/approval.service';
+import { Approval } from 'src/app/approval/approval/approval';
+import { map, groupBy, mergeMap, toArray } from 'rxjs/operators';
 
 
 
@@ -13,11 +18,12 @@ import { AuthenticationService } from 'src/app/account/services/auth/authenticat
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent  implements OnInit{
-  user:User;
+  user: User;
+  subscription: Subscription;
   constructor(private navigator: OnsNavigator, 
               private menuService: MenuService, 
-              private authServer:AuthenticationService) {
-                console.log('constructor');
+              private authServer:AuthenticationService,
+              private approvalService: ApprovalService) {
   }
 
   SignOut(){
@@ -32,14 +38,14 @@ export class SideMenuComponent  implements OnInit{
 
   ngOnInit(): void {
     this.user = this.authServer.currentUserValue;
-    console.log('ngOnInit');
-    // if (this.user && this.user.isActive) {
-    //   return;
-    // }
-    // this.SignOut();
-    // setTimeout(function(){
-    //     ons.notification.toast('Session expired!', {timeout: 2000});
-    // },300);
+    if (this.user && this.user.isActive) {
+      this.subscription = this.approvalService.getAll<Approval[]>().subscribe();
+      return;
+    }
+    this.SignOut();
+    setTimeout(function(){
+        ons.notification.toast('Session expired!', {timeout: 2000});
+    },300);
   }
 }
 

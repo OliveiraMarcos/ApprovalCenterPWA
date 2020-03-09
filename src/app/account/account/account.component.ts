@@ -22,6 +22,7 @@ export class AccountComponent implements OnInit, AfterViewInit{
   loginForm: FormGroup;
   isLoad:boolean=false;
 
+
   validationMessages : ValidationMessages;
   genericValidator : GenericValidator;
   displayMessages: DisplayMessages = {};
@@ -94,6 +95,9 @@ export class AccountComponent implements OnInit, AfterViewInit{
   get f() { return this.loginForm.controls; }
   
   ngOnInit(): void {
+    if (this.authenticationService.currentUserValue.isActive) {
+      this.navigator.element.pushPage(LoggedComponent);
+    }
     this.loginForm = this.fb.group({
       email : ['',[Validators.required, Validators.email, Validators.maxLength(256)]],
       password : ['',[Validators.required, Validators.minLength(6)]],

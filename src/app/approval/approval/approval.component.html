@@ -1,0 +1,17 @@
+<ons-toolbar>
+    <app-toolbar>
+      <div class="center">
+        Approvals
+      </div>
+    </app-toolbar>
+  </ons-toolbar>
+  <div class="content">
+        <ons-list>
+        <ons-list-header>Approvals By Category</ons-list-header>
+        <ons-search-input class="large" id="text" placeholder="Type here" modifier="large" [(value)]="searchText" (keyup)="search()"></ons-search-input>
+
+        <ons-list-item modifier="chevron" tappable *ngFor="let item of approvals$ | async" (click)="pushApproval(item.id)">
+          {{item.subject}}
+        </ons-list-item>
+      </ons-list>
+  </div>

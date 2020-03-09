@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { OnsenuiModule } from './onsenui/onsenui.module';
 import { AccountModule } from './account/account.module';
 import { ApprovalModule } from './approval/approval.module';
-import { CategoryModule } from './category/category.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './account/register/register.component';
 import { AppRoutesModule } from './app.routes';
@@ -26,7 +25,6 @@ import { AccountComponent } from './account/account/account.component';
     OnsenuiModule,
     AccountModule,
     ApprovalModule,
-    CategoryModule,
     ReactiveFormsModule,
     AppRoutesModule
   ],
