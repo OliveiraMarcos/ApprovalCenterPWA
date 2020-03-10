@@ -1,10 +1,12 @@
 <ons-toolbar>
-<app-toolbar>
-    <div class="center">
-    Approvals
-    </div>
-</app-toolbar>
+    <app-toolbar>
+        <div class="center">
+        Approvals
+        </div>
+    </app-toolbar>
 </ons-toolbar>
+<ons-progress-bar indeterminate *ngIf="isLoad"></ons-progress-bar>
+
 <div class="content" >
     <ons-list>
     <ons-list-header>Supject</ons-list-header>
@@ -17,7 +19,7 @@
     </ons-list-item>
     <ons-list-header>Justification</ons-list-header>
     <ons-list-item >
-        <ons-input class="large"></ons-input>
+        <ons-input class="large" [(value)]="justification"></ons-input>
     </ons-list-item>
     </ons-list>
 </div>

@@ -11,6 +11,8 @@ import { AppRoutesModule } from './app.routes';
 import { ResetPasswordComponent } from './account/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './account/forgot-password/forgot-password.component';
 import { AccountComponent } from './account/account/account.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AccountComponent } from './account/account/account.component';
     AccountModule,
     ApprovalModule,
     ReactiveFormsModule,
-    AppRoutesModule
+    AppRoutesModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   schemas: [
       CUSTOM_ELEMENTS_SCHEMA,

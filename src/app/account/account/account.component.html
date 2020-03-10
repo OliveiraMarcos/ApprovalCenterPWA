@@ -1,6 +1,7 @@
 <ons-progress-bar indeterminate *ngIf="isLoad"></ons-progress-bar>
 
 <div class="content">
+  <app-logo></app-logo>
   <form (ngSubmit)="signIn()" [formGroup]="loginForm">
     <p>
       <ons-input id="email" placeholder="Email" modifier="underbar" formControlName="email"></ons-input>

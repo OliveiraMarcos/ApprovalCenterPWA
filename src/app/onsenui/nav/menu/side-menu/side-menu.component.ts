@@ -39,7 +39,7 @@ export class SideMenuComponent  implements OnInit{
   ngOnInit(): void {
     this.user = this.authServer.currentUserValue;
     if (this.user && this.user.isActive) {
-      this.subscription = this.approvalService.getAll<Approval[]>().subscribe();
+      this.subscription = this.approvalService.getAll().subscribe();
       return;
     }
     this.SignOut();

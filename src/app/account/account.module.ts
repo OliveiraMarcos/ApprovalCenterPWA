@@ -14,13 +14,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
     declarations:[
         // AccountComponent,
         // ForgotPasswordComponent,
         // ResetPasswordComponent,
-    ],
+    LogoComponent],
     imports:[
         CommonModule,
         HttpClientModule,
@@ -34,7 +35,8 @@ import { ErrorInterceptorService } from './services/auth/error-interceptor.servi
         // AccountComponent,
         // ForgotPasswordComponent,
         // ResetPasswordComponent,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        LogoComponent
     ],
     providers:[
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

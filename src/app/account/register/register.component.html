@@ -4,7 +4,8 @@
 
 <div class="content">
 
-  <form (ngSubmit)="register()" [formGroup]="registerForm">
+    <app-logo></app-logo>
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
     <p>
       <ons-input id="username" placeholder="Username" modifier="underbar" formControlName="username"></ons-input>
       <span *ngIf="displayMessages.username">

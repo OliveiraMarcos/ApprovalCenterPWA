@@ -6,7 +6,7 @@
 <div class="content">
     <ons-list>
       <ons-list-header>Approvals By Category</ons-list-header>
-      <ons-list-item tappable *ngFor="let item of categorys$ | async" (click)="pushDisplayApprovals(item.id)"> 
+      <ons-list-item tappable *ngFor="let item of categorys$ | async " (click)="pushDisplayApprovals(item.id)"> 
         <div class="center">
           {{item.name}}
         </div>
