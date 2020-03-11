@@ -13,6 +13,7 @@ import { ForgotPasswordComponent } from './account/forgot-password/forgot-passwo
 import { AccountComponent } from './account/account/account.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { environment } from '../environments/environment';
   schemas: [
       CUSTOM_ELEMENTS_SCHEMA,
   ],
-  providers: [],
+  providers:[
+      {provide: APP_BASE_HREF, useValue: '/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
