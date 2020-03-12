@@ -21,12 +21,20 @@
     <ons-list-item >
         <ons-input class="large" [(value)]="justification"></ons-input>
     </ons-list-item>
-    </ons-list>
-</div>
-<ons-fab position="right bottom" (click)="sendApproval(true)">
-    <ons-icon icon="md-thumb-up"></ons-icon>
-</ons-fab>
 
-<ons-fab position="left bottom" (click)="sendApproval(false)">
-    <ons-icon icon="md-thumb-down"></ons-icon>
-</ons-fab>
+    <ons-list-item>
+        <div class="left">
+            <ons-fab position="left" (click)="sendApproval(false)">
+                <ons-icon icon="md-thumb-down"></ons-icon>
+            </ons-fab>
+        </div>
+        
+        <div class="right">
+            <ons-fab class="approval" position="right" (click)="sendApproval(true)">
+                <ons-icon icon="md-thumb-up"></ons-icon>
+            </ons-fab>
+        </div>
+    </ons-list-item>
+    </ons-list>
+    
+</div>
