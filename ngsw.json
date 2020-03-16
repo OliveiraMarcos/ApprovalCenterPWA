@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1584318678050,
+  "timestamp": 1584321218565,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -100,7 +100,7 @@
     "/ionicons.cfdc15225683b7529d6b.ttf": "a8cfdb2b0545da2c9883e8f3446ecd6ae467ee7d",
     "/main-es2015.11d25a8e9864a492c13e.js": "fbc9a1e079186b83d7085f58913daffbacba763b",
     "/main-es5.11d25a8e9864a492c13e.js": "cf28680a74166eff5bd804d2c920d62be8b5faff",
-    "/manifest.webmanifest": "76b0bbef618c09e5332347e894e959033c8537c3",
+    "/manifest.webmanifest": "ace4fe8b0e053f259f39a0ec54ab412b375f0626",
     "/polyfills-es2015.442fa3cc45520cc0d518.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
     "/polyfills-es5.abdd41dcd206a6689f72.js": "8d03638471d7374e81cf33adfdea439f84ac3873",
     "/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
