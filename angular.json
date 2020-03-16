@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ApprovalCenter": {
+    "ApprovalCenterPWA": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ApprovalCenter",
+            "outputPath": "dist/ApprovalCenterPWA",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -92,18 +92,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ApprovalCenter:build"
+            "browserTarget": "ApprovalCenterPWA:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ApprovalCenter:build:production"
+              "browserTarget": "ApprovalCenterPWA:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ApprovalCenter:build"
+            "browserTarget": "ApprovalCenterPWA:build"
           }
         },
         "deploy": {
@@ -113,7 +113,7 @@
       }
     }
   },
-  "defaultProject": "ApprovalCenter",
+  "defaultProject": "ApprovalCenterPWA",
   "cli": {
     "analytics": "35f0175a-b7bc-4bc4-84fc-d03bfc49a976"
   }
