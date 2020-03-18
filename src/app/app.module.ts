@@ -36,7 +36,7 @@ import { APP_BASE_HREF } from '@angular/common';
       CUSTOM_ELEMENTS_SCHEMA,
   ],
   providers:[
-      {provide: APP_BASE_HREF, useValue: '/'}
+      {provide: APP_BASE_HREF, useValue: '/ApprovalCenterPWA/'}
   ],
   bootstrap: [AppComponent]
 })
