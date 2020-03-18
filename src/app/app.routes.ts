@@ -8,7 +8,7 @@ export const rootRouterConfig : Routes = [
     {path: '', component: AppHomeComponent},
     {path: 'reset', component: ResetPasswordComponent},
 
-    {path: '**', component: AppHomeComponent}
+    // {path: '**', component: AppHomeComponent}
 ];
 
 
