@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 
 export const rootRouterConfig : Routes = [
     // {path: '', redirectTo:'/app', pathMatch:'full'},
+    {path: 'reset', component: ResetPasswordComponent},
     {path: '', component: AppHomeComponent},
-    {path: 'reset/:email/:token', component: ResetPasswordComponent},
 
     {path: '**', component: AppHomeComponent}
 ];
@@ -14,7 +14,7 @@ export const rootRouterConfig : Routes = [
 
 @NgModule({
     imports:[
-        RouterModule.forRoot(rootRouterConfig)
+        RouterModule.forRoot(rootRouterConfig, {enableTracing:false,useHash:false})
     ],
     exports:[
         RouterModule

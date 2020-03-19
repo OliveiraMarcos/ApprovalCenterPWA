@@ -21,8 +21,6 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
   resetPasswordObj:ResetPassword;
   resetPasswordForm: FormGroup;
   isLoad:boolean=false;
-  email:string;
-  token:string;
   validationMessages : ValidationMessages;
   genericValidator : GenericValidator;
   displayMessages: DisplayMessages = {};
@@ -85,19 +83,16 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
   
 
   ngOnInit(): void {
-    this.route
-        .params
-        .subscribe(params =>{
-          this.email = params['email'];
-          this.token = params['token'];
-        });
+    
+    console.log(this.route.snapshot.queryParamMap.get('email'));
+    
     let password = new FormControl('',[Validators.required, Validators.minLength(6)]);
     let confirmPassword = new FormControl('',[Validators.required, Validators.minLength(6), CustomValidators.equalTo(password)]);
     this.resetPasswordForm = this.fb.group({
-      email : [this.email,[Validators.required, Validators.email, Validators.maxLength(256)]],
+      email : [this.route.snapshot.queryParamMap.get('email'),[Validators.required, Validators.email, Validators.maxLength(256)]],
       password : password,
       confirmPassword : confirmPassword,
-      tokenPassword:[this.token]
+      tokenPassword:[this.route.snapshot.queryParamMap.get('token')]
     });
   }
 
