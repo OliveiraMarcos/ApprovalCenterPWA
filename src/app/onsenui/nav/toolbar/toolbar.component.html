@@ -6,7 +6,7 @@
     </div>
     <ng-content></ng-content>
     <div class="right">
-      <ons-icon icon="md-thumb-up-down" size="24px">
+      <ons-icon icon="md-thumb-up-down" size="24px" (click)="goTo('category')">
         <span class="notification notification--material">{{approvalsCount$ | async}}</span>
       </ons-icon>
       <ons-icon icon="md-notifications" size="24px">

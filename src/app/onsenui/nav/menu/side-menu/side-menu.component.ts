@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OnsNavigator } from 'ngx-onsenui';
 import { MenuService } from '../menu.service';
-import * as ons from 'onsenui';
 import { User } from 'src/app/account/services/auth/user';
 import { AuthenticationService } from 'src/app/account/services/auth/authentication.service';
 import { Subscription, Observable } from 'rxjs';
@@ -9,6 +8,7 @@ import { Store } from 'src/app/approval/store/approval.store';
 import { ApprovalService } from 'src/app/approval/services/approval.service';
 import { Approval } from 'src/app/approval/approval/approval';
 import { map, groupBy, mergeMap, toArray } from 'rxjs/operators';
+import { ToastService } from '../../ons/toast.service';
 
 
 
@@ -23,7 +23,8 @@ export class SideMenuComponent  implements OnInit{
   constructor(private navigator: OnsNavigator, 
               private menuService: MenuService, 
               private authServer:AuthenticationService,
-              private approvalService: ApprovalService) {
+              private approvalService: ApprovalService,
+              private toast:ToastService) {
   }
 
   SignOut(){
@@ -44,7 +45,7 @@ export class SideMenuComponent  implements OnInit{
     }
     this.SignOut();
     setTimeout(function(){
-        ons.notification.toast('Session expired!', {timeout: 2000});
+      this.toast.showToast('Session expired!');
     },300);
   }
 }

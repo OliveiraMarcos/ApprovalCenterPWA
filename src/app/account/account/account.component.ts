@@ -6,9 +6,9 @@ import { ForgotPasswordComponent } from '../forgot-password/forgot-password.comp
 import { FormControlName, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidationMessages, GenericValidator, DisplayMessages } from 'src/app/generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
-import * as ons from 'onsenui';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/auth/authentication.service';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 @Component({
   selector: 'ons-page[app-account]',
@@ -28,7 +28,8 @@ export class AccountComponent implements OnInit, AfterViewInit{
   displayMessages: DisplayMessages = {};
   constructor(private navigator: OnsNavigator,
               private fb: FormBuilder,
-              private authenticationService: AuthenticationService) 
+              private authenticationService: AuthenticationService,
+              private toast:ToastService) 
   {
     this.validationMessages = {
       email : {
@@ -55,11 +56,6 @@ export class AccountComponent implements OnInit, AfterViewInit{
     this.navigator.element.pushPage(ForgotPasswordComponent);
   }
 
-  private showToast(msg:string):void {
-    this.isLoad = false;
-    ons.notification.toast(msg, {timeout: 2000});
-  }
-
   signIn(){
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -73,19 +69,22 @@ export class AccountComponent implements OnInit, AfterViewInit{
             result => {
               if (result.success) {
               //Go to logged page 
-              this.showToast('Success!');
+              this.toast.showToast('Success!');
+              this.isLoad = false;
               this.navigator.element.pushPage(LoggedComponent);
             } else {
               //send show errors
               result.errors.forEach(msg => {
-                this.showToast(msg);
+                this.toast.showToast(msg);
+                this.isLoad = false;
               });
             }
           },
           fail => {
             //show erros
             fail.error.errors.forEach(msg => {
-              this.showToast(msg);
+              this.toast.showToast(msg);
+              this.isLoad = false;
             });
           }
       );

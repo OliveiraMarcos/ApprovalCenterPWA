@@ -4,10 +4,10 @@ import { Register } from '../register/register';
 import { ValidationMessages, GenericValidator, DisplayMessages } from 'src/app/generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
 import { AccountService } from '../services/account.service';
-import * as ons from 'onsenui';
 import { CustomValidators } from 'ngx-custom-validators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResetPassword } from './reset-password';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 @Component({
   selector: 'ons-page[app-reset-password]',
@@ -30,7 +30,8 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
   constructor(private fb: FormBuilder, 
               private accountServer: AccountService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private toast:ToastService) {
 
     this.validationMessages = {
       email : {
@@ -67,23 +68,21 @@ export class ResetPasswordComponent implements OnInit, AfterViewInit {
             } else {
               //send show errors
               result.errors.forEach(msg => {
-                this.showToast(msg);
+                this.toast.showToast(msg);
+                this.isLoad = false;
               });
             }
           },
           fail => {
             //show erros
             fail.error.errors.forEach(msg => {
-              this.showToast(msg);
+              this.toast.showToast(msg);
+              this.isLoad = false;
             });
           }
         );
   }
   
-  private showToast(msg:string):void {
-    this.isLoad = false;
-    ons.notification.toast(msg, {timeout: 2000});
-  }
 
   ngOnInit(): void {
     this.route

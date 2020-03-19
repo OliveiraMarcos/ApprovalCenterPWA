@@ -4,9 +4,9 @@ import { FormBuilder, FormGroup, FormControl, Validators, FormControlName } from
 import { CustomValidators } from 'ngx-custom-validators';
 import { Observable, fromEvent, merge } from 'rxjs';
 import { Register } from './register';
-import * as ons from 'onsenui';
 import { ValidationMessages, GenericValidator, DisplayMessages } from 'src/app/generic-form-validation';
 import { AccountService } from '../services/account.service';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 @Component({
   selector: 'ons-page[app-register]',
@@ -28,7 +28,8 @@ export class RegisterComponent implements OnInit, AfterViewInit{
 
   constructor(private navigator: OnsNavigator, 
     private fb: FormBuilder, 
-    private accountServer: AccountService) {
+    private accountServer: AccountService,
+    private toast:ToastService) {
     this.validationMessages = {
       username:{
         required : 'The Name is requered',
@@ -72,24 +73,23 @@ export class RegisterComponent implements OnInit, AfterViewInit{
             } else {
               //send show errors
               result.errors.forEach(msg => {
-                this.showToast(msg);
+                this.toast.showToast(msg);
+                this.isLoad = false;
               });
             }
           },
           fail => {
             //show erros
             fail.error.errors.forEach(msg => {
-              this.showToast(msg);
+              this.toast.showToast(msg);
+              this.isLoad = false;
             });
           }
         );
 
   }
 
-  private showToast(msg:string):void {
-    this.isLoad = false;
-    ons.notification.toast(msg, {timeout: 2000});
-  }
+  
 
   ngOnInit(): void {
     let password = new FormControl('',[Validators.required, Validators.minLength(6)]);

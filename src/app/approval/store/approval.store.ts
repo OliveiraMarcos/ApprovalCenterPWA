@@ -2,7 +2,7 @@ import { Approval } from '../approval/approval';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Result } from 'src/app/account/services/result/result';
-import * as ons from 'onsenui';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 export interface State{
     Approvals: Approval[];
@@ -16,6 +16,8 @@ export class Store {
     
     private subject = new BehaviorSubject<State>(state);
     private store = this.subject.asObservable();
+
+    constructor(private toast:ToastService){}
 
     get value() {
         return this.subject.value;
@@ -38,8 +40,5 @@ export class Store {
         });
     }
 
-    private showToast(msg:string):void {
-        ons.notification.toast(msg, {timeout: 2000});
-    }
     
 }

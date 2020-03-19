@@ -3,9 +3,9 @@ import { FormGroup, FormBuilder, Validators, FormControlName } from '@angular/fo
 import { ValidationMessages, GenericValidator, DisplayMessages } from 'src/app/generic-form-validation';
 import { ForgotPassword } from './forgot-password';
 import { OnsNavigator } from 'ngx-onsenui';
-import * as ons from 'onsenui';
 import { AccountService } from '../services/account.service';
 import { Observable, fromEvent, merge } from 'rxjs';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 @Component({
   selector: 'ons-page[app-forgot-password]',
@@ -26,7 +26,8 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
 
   constructor(private navigator: OnsNavigator, 
     private fb: FormBuilder, 
-    private accountServer: AccountService ) {
+    private accountServer: AccountService,
+    private toast:ToastService ) {
       this.validationMessages = {
         email : {
           required : 'The Email is requered',
@@ -57,23 +58,21 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
             } else {
               //send show errors
               result.errors.forEach(msg => {
-                this.showToast(msg);
+                this.toast.showToast(msg);
+                this.isLoad = false;
               });
             }
           },
           fail => {
             //show erros
             fail.error.errors.forEach(msg => {
-              this.showToast(msg);
+              this.toast.showToast(msg);
+              this.isLoad = false;
             });
           }
         )
 
   }
-  private showToast(msg:string):void {
-    this.isLoad = false;
-    ons.notification.toast(msg, {timeout: 2000});
-  }  
   ngOnInit(): void {
     this.forgotPasswordForm = this.fb.group({
       email : ['',[Validators.required, Validators.email, Validators.maxLength(256)]]

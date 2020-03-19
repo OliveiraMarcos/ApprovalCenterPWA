@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Approval } from '../approval/approval';
 import { map, first } from 'rxjs/operators';
 import { ApprovalService } from '../services/approval.service';
-import * as ons from 'onsenui';
+import { ToastService } from 'src/app/onsenui/nav/ons/toast.service';
 
 @Component({
   selector: 'ons-page[app-approval-form]',
@@ -20,7 +20,8 @@ export class ApprovalFormComponent implements OnInit {
   constructor(private params: Params,
               private store: Store,
               private approvalService: ApprovalService,
-              private navigator: OnsNavigator) { }
+              private navigator: OnsNavigator,
+              private toast:ToastService) { }
 
   ngOnInit(): void {
     this.isLoad = false;
@@ -47,27 +48,26 @@ export class ApprovalFormComponent implements OnInit {
           result => {
             if (result.success) {
               //Go to logged page 
-              this.showToast('Success!');
+              this.toast.showToast('Success!');
+              this.isLoad = false;
               this.navigator.element.popPage();
             } else {
               //send show errors
               result.errors.forEach(msg => {
-                this.showToast(msg);
+                this.toast.showToast(msg);
+                this.isLoad = false;
               });
             }
           },
           fail => {
             //show erros
             fail.error.errors.forEach(msg => {
-              this.showToast(msg);
+              this.toast.showToast(msg);
+              this.isLoad = false;
             });
           }
         )
   }
 
-  private showToast(msg:string):void {
-    this.isLoad = false;
-    ons.notification.toast(msg, {timeout: 2000});
-  }
 
 }
