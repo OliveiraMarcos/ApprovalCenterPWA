@@ -26,9 +26,37 @@ To access of Demo click [here](https://oliveiramarcos.github.io/ApprovalCenterPW
 The API back-end application can be found in repository [here](https://github.com/OliveiraMarcos/ApprovalCenter)
 
 ### Android
-![ScreenShot](https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/01.jpg =100x)
+<p>
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/01.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/02.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/03.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/04.jpg" width="200">
+ 
+</p>
+<p>
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/05.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/06.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/07.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/08.jpg" width="200">
+ 
+</p>
+
+
 
 ### IOS
+<p>
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/01.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/02.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/03.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/04.jpg" width="200">
+ 
+</p>
+<p>
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/05.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/06.jpg" width="200">
+<img src="https://github.com/OliveiraMarcos/Images/blob/master/AC/IOS/07.jpg" width="200">
+ 
+</p>
 
 ## Code scaffolding
 
