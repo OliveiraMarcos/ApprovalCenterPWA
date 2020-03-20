@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit, AfterViewInit{
             if (result.success) {
               //Go to login 
               this.popRegister();
-              this.showToast(`A confirmation email has been sent to ${result.data.email}.`);
+              this.toast.showToast(`A confirmation email has been sent to ${result.data.email}.`);
             } else {
               //send show errors
               result.errors.forEach(msg => {
