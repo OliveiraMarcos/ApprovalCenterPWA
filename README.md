@@ -1,7 +1,8 @@
 # ApprovalCenter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 Single unified PWA application for approvals of several types, developed with multiples technologys how Angular 9, OnsenUi and PWA
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
 [![Lisence](https://img.shields.io/github/license/OliveiraMarcos/BaseFoundationProject)](LICENSE)
 
@@ -42,3 +43,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## References
+
+- https://onsen.io/v2/guide/angular2/
+- https://desenvolvedor.io/formacao/front-end-expert-angular
+- https://jasonwatmore.com/post/2019/06/22/angular-8-jwt-authentication-example-tutorial
+- https://medium.com/@lucashenriquedeabreu/progressive-web-app-aplicando-as-t%C3%A9cnicas-de-pwa-em-angular-6-87ee22444d19
