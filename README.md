@@ -25,6 +25,11 @@ To access of Demo click [here](https://oliveiramarcos.github.io/ApprovalCenterPW
 
 The API back-end application can be found in repository [here](https://github.com/OliveiraMarcos/ApprovalCenter)
 
+### Android
+![ScreenShot](https://github.com/OliveiraMarcos/Images/blob/master/AC/Android/01.jpg =100x)
+
+### IOS
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
